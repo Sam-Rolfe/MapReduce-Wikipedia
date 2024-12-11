@@ -24,7 +24,7 @@ page_suffix_exclusions = [".jpg", ".gif", ".png", ".JPG", ".GIF", ".PNG", ".ico"
 # 3. Exclude pages not beginning in uppercase English letter
 # 4. Exclude any article that ends with an image or text-file extension (jpg, gif, .png, .JPG, .GIF, .PNG, .ico, and .txt).
 # 5. Exclude boilerplate pages (404_error, Main_Page, Hypertext_Transfer_Protocol, Favicon.ico, and Search).
-def valid(line):
+def map(line):
     # Set regex pattern to match and extract record contents
     regex_capture = re.compile(r"(\S+)\s+(\S+)\s+(\S+)\s+(\S+)")
     match = regex_capture.match(line)
@@ -55,15 +55,15 @@ def valid(line):
         if terms[1].startswith(page_suffix_exclusion):
             return False
         
-    return True
+    # 5. Remove boilerplate pages (to do)
+        
+    # Map output if all criteria are met
+    print(terms[1], '\t', terms[2])
 
 #----MAIN-----------------------------------------------------------------------------------------
 
 print("Processing lines...")
 for line in sys.stdin:
-    if(valid(line)):
-        print(line)
-    # valid(line)
-    # print(line)
+    map(line)
 
 #-------------------------------------------------------------------------------------------------
