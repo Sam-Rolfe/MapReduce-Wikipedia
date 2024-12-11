@@ -46,9 +46,11 @@ def valid(line):
         if terms[1].startswith(page_prefix_exclusion):
             return False
 
-    # 3. Exclude pages not beginning in uppercase English letter
+    # 3. Exclude pages beginning in lowercase English letter
+    if(terms[1][0].islower()):
+        return False
 
-    # 4. Exclude hard-coded set of suffixes
+    # 4. Exclude articles that end with an image or text-file extension
     for page_suffix_exclusion in page_suffix_exclusions:
         if terms[1].startswith(page_suffix_exclusion):
             return False
@@ -63,7 +65,5 @@ for line in sys.stdin:
         print(line)
     # valid(line)
     # print(line)
-
-
 
 #-------------------------------------------------------------------------------------------------
