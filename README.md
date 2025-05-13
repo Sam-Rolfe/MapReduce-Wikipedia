@@ -16,4 +16,4 @@ This code is for educational purposes only. Please do not plagiarize or submit i
 
 ---
 
-© Sam Rolfe, [2024
+© Sam Rolfe, 2024
